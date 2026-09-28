@@ -1,0 +1,59 @@
+/* ==========================================================================
+   Article pages (post-*.html) — shared by all three. Loaded after style.css,
+   so it wins ties the same way the old inline <style> block did.
+   Only rules that the article template actually uses live here; page-specific
+   CSS for the homepage stays inline in index.html.
+   ========================================================================== */
+
+.post-top{ padding-top:clamp(150px,17vw,200px) !important; padding-bottom:0 !important; }
+
+.post-header{ max-width:760px; }
+
+.post-header .article-meta{ margin-bottom:16px; }
+
+.post-header h1{ font-size:clamp(2rem,4vw,2.7rem); line-height:1.18; }
+
+.post-featured{ margin-top:clamp(32px,4vw,44px); border-radius:var(--radius-md); overflow:hidden; max-width:900px; aspect-ratio:16/9; }
+
+.post-featured img{ width:100%; height:100%; object-fit:cover; }
+
+.post-body{ max-width:700px; margin-top:clamp(32px,4vw,44px); }
+
+.post-body p{ font-size:1.02rem; line-height:1.75; color:var(--ink); margin-bottom:20px; }
+
+.post-body h2{ font-size:1.35rem; margin-top:34px; margin-bottom:12px; }
+
+.post-body blockquote{ border-left:3px solid var(--green); padding-left:18px; margin:24px 0; font-style:italic; color:var(--ink-muted); font-size:1.05rem; }
+
+.post-cta{ max-width:700px; margin-top:44px; padding-top:28px; border-top:1px solid rgba(27,43,28,.1); }
+
+.post-share{ margin-top:44px; padding-top:28px; border-top:1px solid rgba(27,43,28,.1); display:flex; align-items:center; gap:12px; flex-wrap:wrap; max-width:700px; }
+
+.post-share-label{ font-size:.78rem; font-weight:600; color:var(--ink-muted); text-transform:uppercase; letter-spacing:.04em; margin-right:6px; }
+
+.post-share a, .post-share button{
+    width:38px; height:38px; border-radius:50%; background:var(--paper);
+    border:1px solid rgba(27,43,28,.12); display:flex; align-items:center; justify-content:center;
+    cursor:pointer; text-decoration:none; position:relative;
+    transition:background .25s ease, border-color .25s ease, transform .25s ease;
+  }
+
+.post-share a:hover, .post-share button:hover{ background:var(--green); border-color:var(--green); transform:translateY(-2px); }
+
+.post-share svg{ width:16px; height:16px; stroke:var(--ink); fill:none; transition:stroke .25s ease; }
+
+.post-share a:hover svg, .post-share button:hover svg{ stroke:var(--cream); }
+
+.post-share .copied-tip{
+    position:absolute; bottom:calc(100% + 8px); left:50%; transform:translateX(-50%) translateY(4px);
+    background:var(--green-deep); color:#fff; font-size:.75rem; font-weight:600; padding:4px 9px; border-radius:var(--radius-sm);
+    white-space:nowrap; opacity:0; pointer-events:none; transition:opacity .2s ease, transform .2s ease;
+  }
+
+.post-share .copied-tip.show{ opacity:1; transform:translateX(-50%) translateY(0); }
+
+.read-progress{ position:fixed; top:0; left:0; height:3px; width:0%; background:var(--gold); z-index:300; transition:width .1s linear; }
+
+@media (prefers-reduced-motion:reduce){
+  .read-progress{transition:none;}
+}
